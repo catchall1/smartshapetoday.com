@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0068)https://streamlinedresourceshub.com/lander_pages/11/?sub1=8883&sub2= -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
   position: fixed;
   display: block;
@@ -19,7 +20,149 @@
 <meta name="csrf-token" content="foQC1eLrZi8WpFWlRAY7ey0XCL0cU6rPRpAE8Kmi9mpDAmbZXWUOtxskEK2y0xbECuhpnZsX53bdN2JtNMyBzg">
   <meta name="csp-nonce">
 
-   
+    <!-- Snippets Start -->
+    <script async="" src="./rv1_files/fbevents.js.изтеглен файл"></script><script type="text/javascript" id="ipl4t" data-controller="snippets--predefined-templates--fbq-uuid-to-sub-five-controller">
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        ' https://connect.facebook.net/en_US/fbevents.js');
+
+    (function () {
+        try {
+            var rewriteDOM = function () {
+                Promise.resolve().then(function () {
+                    var uuidGen = function () {
+                        return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                            (
+                                c ^
+                                (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+                            ).toString(16)
+                        );
+                    };
+                    var uuid = uuidGen();
+                    var options = {
+                        external_id: uuid
+                    }
+                    if (typeof fbq != 'undefined' && fbq) {
+                        fbq('init', '2186106761571886', options);
+                        fbq('track', 'PageView', options);
+                    } else {
+                        console.log('[params rewriting] no fbq pixel source to init');
+                    }
+                    var addParamsToUrl = function (url) {
+                        return params =>
+                            url + (url.indexOf("?") !== -1 ? "&" : "?") + params.substr(1);
+                    };
+
+                    var leadFormComponents = document.querySelectorAll("[data-controller=lead-forms--component]");
+                    var pageLinks = document.querySelectorAll("a");
+                    var forms = document.querySelectorAll("form");
+                    var answers = document.querySelectorAll(".button.answer[onclick]")
+                    var redirectableEl = document.querySelectorAll("[data-redirect]");
+                    var newTabRedirectableEl = document.querySelectorAll("[data-new-tab-redirect]");
+
+
+                    console.log('leadFormComponents', leadFormComponents)
+                    console.log('forms', forms)
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        console.log('DOM fully loaded and parsed');
+                        console.log("dom ready leadform", document.querySelectorAll("[data-controller=lead-forms--component]"))
+                    });
+                    Array.from(leadFormComponents).forEach(leadFormComponent => {
+                        var submitRedirectAttr = 'data-lead-forms--component-submit-redirect-url-value'
+                        var popupRedirectAttr = 'data-lead-forms--component-submit-popup-url-value'
+                        var redirectLink = leadFormComponent.getAttribute(submitRedirectAttr)
+                        var popupRedirect = leadFormComponent.getAttribute(popupRedirectAttr)
+                        if (redirectLink) leadFormComponent.setAttribute(submitRedirectAttr, addParamsToUrl(redirectLink)("&sub5=" + uuid));
+                        if (popupRedirect) leadFormComponent.setAttribute(popupRedirectAttr, addParamsToUrl(popupRedirect)("&sub5=" + uuid));
+                    })
+                    Array.from(forms).forEach(form => {
+                        var redirect_link = form.getAttribute('redirect_link')
+                        var new_tab_redirect_link = form.getAttribute('new_tab_redirect_link')
+                        if (redirect_link) form.setAttribute('redirect_link', addParamsToUrl(redirect_link)("&sub5=" + uuid));
+                        if (new_tab_redirect_link) form.setAttribute('new_tab_redirect_link', addParamsToUrl(new_tab_redirect_link)("&sub5=" + uuid));
+                    })
+                    Array.from(redirectableEl).forEach(form => {
+                        var redirect_link = form.getAttribute('data-redirect')
+                        if (redirect_link) form.setAttribute('data-redirect', addParamsToUrl(redirect_link)("&sub5=" + uuid));
+                    })
+                    Array.from(newTabRedirectableEl).forEach(form => {
+                        var new_tab_redirect_link = form.getAttribute('data-new-tab-redirect')
+                        if (new_tab_redirect_link) form.setAttribute('data-new-tab-redirect', addParamsToUrl(new_tab_redirect_link)("&sub5=" + uuid));
+                    })
+                    var extractUrlFromHandler = (clickHandlerStr) => {
+                        return clickHandlerStr.slice(clickHandlerStr.indexOf('https'), clickHandlerStr.lastIndexOf("'"));
+                    }
+                    var extractEverythingBeforeUrl = (clickHandlerStr) => {
+                        return clickHandlerStr.slice(0, clickHandlerStr.indexOf('https'))
+                    }
+                    var extractEverythingAfterUrl = (clickHandlerStr) => {
+                        return clickHandlerStr.slice(clickHandlerStr.lastIndexOf("'"), clickHandlerStr.length)
+                    }
+                    var formatNewHandler = (oldHandlerStr, url) => {
+                        return `${extractEverythingBeforeUrl(oldHandlerStr)}${url}${extractEverythingAfterUrl(oldHandlerStr)}`
+                    }
+                    Array.from(answers).forEach(answer => {
+                        var clickHandlerStr = answer.getAttribute("onclick")
+                        if (extractUrlFromHandler(clickHandlerStr)) {
+                            parsedUrl = addParamsToUrl(extractUrlFromHandler(clickHandlerStr))("&sub5=" + uuid)
+                            answer.setAttribute('onclick', formatNewHandler(clickHandlerStr, parsedUrl))
+                        }
+                    })
+                    Array.from(pageLinks).forEach(link => {
+                        var href = link.href;
+                        if (href) link.href = addParamsToUrl(href)("&sub5=" + uuid);
+                    });
+
+                    function getMetaValue(name) {
+                        const element = document?.head?.querySelector(`meta[name="${name}"]`)
+                        return element?.getAttribute("content")
+                    }
+
+                    function saveToLS(key, value) {
+                        return new Promise((resolve, reject) => {
+                            try {
+                                localStorage.setItem(key, JSON.stringify(value))
+                                const results = JSON.parse(localStorage.getItem(key))
+                                resolve(results)
+                            } catch (error) {
+                                reject(error)
+                            }
+                        })
+                    }
+
+                    saveToLS("fb_sub_five", uuid).then(() => {
+                        window.dispatchEvent(new Event("storage"))
+                        console.log('teststorage')
+                    })
+                });
+            }
+            if (document && document.readyState && document.readyState === "complete") {
+                rewriteDOM()
+            } else {
+                window.addEventListener("DOMContentLoaded", () => {
+                    rewriteDOM()
+                });
+            }
+        } catch (e) {
+            console.log('[params rewriting] ERROR', e)
+        }
+    }())
+</script>
 
 
 <!-- Snippet End -->
@@ -499,7 +642,7 @@
     font-size: inherit;
 }</style><script type="text/javascript" charset="UTF-8" src="./rv1_files/common.js.изтеглен файл"></script><script type="text/javascript" charset="UTF-8" src="./rv1_files/util.js.изтеглен файл"></script></head>
 
-<body>
+<body data-lander-page-id="11" data-controller="modal event-tracker" data-modal-hidden-class="!hidden" data-session-location="{&quot;ip&quot;:&quot;45.83.216.63&quot;,&quot;type&quot;:&quot;ipv4&quot;,&quot;continent_code&quot;:&quot;EU&quot;,&quot;continent_name&quot;:&quot;Europe&quot;,&quot;country_code&quot;:&quot;BG&quot;,&quot;country_name&quot;:&quot;Bulgaria&quot;,&quot;region_code&quot;:&quot;08&quot;,&quot;region_name&quot;:&quot;Dobrich&quot;,&quot;city&quot;:&quot;General Toshevo&quot;,&quot;zip&quot;:&quot;9500&quot;,&quot;latitude&quot;:43.701698303222656,&quot;longitude&quot;:28.039600372314453,&quot;location&quot;:{&quot;geoname_id&quot;:null,&quot;capital&quot;:&quot;Sofia&quot;,&quot;languages&quot;:[{&quot;code&quot;:&quot;bg&quot;,&quot;name&quot;:&quot;Bulgarian&quot;,&quot;native&quot;:&quot;Български&quot;}],&quot;country_flag&quot;:&quot;https://assets.ipstack.com/flags/bg.svg&quot;,&quot;country_flag_emoji&quot;:&quot;🇧🇬&quot;,&quot;country_flag_emoji_unicode&quot;:&quot;U+1F1E7 U+1F1EC&quot;,&quot;calling_code&quot;:&quot;359&quot;,&quot;is_eu&quot;:true},&quot;time_zone&quot;:{&quot;id&quot;:&quot;Europe/Sofia&quot;,&quot;current_time&quot;:&quot;2022-12-23T18:20:19+02:00&quot;,&quot;gmt_offset&quot;:7200,&quot;code&quot;:&quot;EET&quot;,&quot;is_daylight_saving&quot;:false},&quot;currency&quot;:{&quot;code&quot;:&quot;BGN&quot;,&quot;name&quot;:&quot;Bulgarian Lev&quot;,&quot;plural&quot;:&quot;Bulgarian leva&quot;,&quot;symbol&quot;:&quot;BGN&quot;,&quot;symbol_native&quot;:&quot;лв.&quot;},&quot;connection&quot;:{&quot;asn&quot;:12436,&quot;isp&quot;:&quot;Bergon Internet Ltd.&quot;}}" data-hidden-referrer="" data-action="click-&gt;event-tracker#handleClick" id="izyk" data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
 
 
 
@@ -526,7 +669,7 @@
         <br><br>Trademarks utilized on our website belong to their respective owners and no implied or expressed endorsement of our website or services is intended. Through in-depth research and experienced editors we provide feedback about products and services. We are independently owned, and opinions expressed here are our own.
         <br><br>THIS IS AN ADVERTORIAL AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE. We are dedicated to bringing readers valuable information which can help them accomplish their financial and lifestyle goals. Our disclaimer is that this site does receive compensation for product reviews and referrals or purchases made through our links. This page is an advertisement/advertorial. The story depicted here is for demonstration purposes only and everyone's results may vary. We hope you find our online resource informative and helpful. This site is in no way affiliated with any news source. This site contains affiliate and partner links. This website and the company that owns it is not responsible for any typographical or photographic errors. If you do not agree to our terms and policies, then please leave this site immediately. All trademarks, logos, and service marks (collectively the "Trademarks") displayed are registered and/or unregistered Trademarks of their respective owners. Contents of this website are copyrighted property of the reviewer and/or this website.&nbsp;
       </p><p class="text-center text-xxs mb-4 lg:mb-2 lg:text-xs"><br>© 2022 streamlinedresourceshub.com
-      </p></div><div class="menu mb-4"><a href="terms" class="text-center text-xs text-gray-400 mx-1">Terms and Service</a><a href="privacy" class="text-center text-xs text-gray-400 mx-1">Privacy Policy</a></div></footer>
+      </p></div><div class="menu mb-4"><a href="https://streamlinedresourceshub.com/terms?sub5=56f55532-10ea-4acf-8e52-f100b7f20928" class="text-center text-xs text-gray-400 mx-1">Terms and Service</a><a href="https://streamlinedresourceshub.com/privacy?sub5=56f55532-10ea-4acf-8e52-f100b7f20928" class="text-center text-xs text-gray-400 mx-1">Privacy Policy</a></div></footer>
   <style>
     * { box-sizing: border-box; } body {margin: 0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}*{box-sizing:border-box;}body{margin:0;}.p-2.text-5xl.leading-relaxed.font-bold.text-center{font-size:34px;}.w-full.object-cover{width:91%;display:block;margin-left:auto;margin-right:auto;height:458.25px;}.shadow.rounded.w-full.py-4.my-2.text-2lg.text-white.bg-primary.text-\[\#fff\]{font-size:36px;color:#ffffff;background-color:#4ba3d7;border:3px solid #184994;border-radius:1px 1px 1px 1px;}.container.mx-auto.md\:px-48.px-8.py-4.my-3{background-color:#ffffff;border:4px solid #e0e0e0;}#icax{max-width:970px;margin:0 auto 100px auto;}.container.mx-auto.md\:px-48.px-8.py-4.my-3{margin:0 0 0 0;padding:0 10px 0 0;}.container.mx-auto.md\:px-48.px-8.py-4.my-3.flex{display:flex;flex-direction:column;align-items:center;}.container.mx-auto.px-8.py-4.my-3{background-color:#ffffff;border:3px solid #e0e0e0;margin:-3px 0 0 0;}.p-2.text-3xl.leading-relaxed.font-bold.text-center{text-align:left;}.shadow.rounded.w-full.py-4.my-2.text-2lg.text-white.bg-primary.text-\[\#fff\]{background-color:#1ebf20;}.gjs-row{display:flex;justify-content:flex-start;align-items:stretch;flex-wrap:nowrap;padding:10px;}.gjs-cell{min-height:75px;flex-grow:1;flex-basis:100%;}#iy6cr{padding:10px;color:#0175b2;}#iw1i7{color:black;width:128px;height:98px;}#ijw3r{flex-basis:23.59%;}#ircdq{padding:10px;color:#999999;}#i3epp{border:4px solid #9da6b0;}#i3qe0g{padding:10px;text-align:center;}#iqbt3h{font-weight:normal;}#i9a0vc{font-weight:normal;}#i17mpm{color:rgb(46, 140, 255);font-family:Roboto, sans-serif;font-size:20px;text-align:center;white-space:pre-wrap;}#i0ose4{padding:10px;text-align:center;font-size:22px;}#iyjfq3{color:black;}.shadow.rounded.w-full.py-4.my-2.text-2lg.text-white.bg-primary.text-\[\#fff\]{color:#000000;background-color:#fede01;}#ixi7h{background-color:#ffffff;}#i1mxd{color:#2d8cff;}#izyk{background-color:#adb7c2;}@media (max-width: 768px){.gjs-row{flex-wrap:wrap;}}@media (max-width: 480px){.text-center.text-xxs.mb-4.lg\:mb-2.lg\:text-xs{font-size:10px;}.p-2.text-5xl.leading-relaxed.font-bold.text-center{font-size:20px;}.py-2.text-lg{font-size:16px;}.p-2.text-3xl.leading-relaxed.font-bold.text-center{font-size:22px;}.shadow.rounded.w-full.py-4.my-2.text-2lg.text-white.bg-primary.text-\[\#fff\]{font-size:18px;}.text-center.text-xxs.leading-tight.mb-4.lg\:mb-2.lg\:text-xs{font-size:10px;}.container.mx-auto.px-8.py-4.my-3{padding:0 2.5% 0 2.5%;}#icax{margin:0 2.5% 50px 2.5%;}.w-full.object-cover{height:147.25px;}}
   </style>
